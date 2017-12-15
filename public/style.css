@@ -1,0 +1,8 @@
+div#sucos{
+	position: relative;
+	float: left;
+}
+div#bolos{
+	position: relative;
+	float: right;
+}

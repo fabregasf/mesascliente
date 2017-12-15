@@ -1,0 +1,122 @@
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <title>Painel de Controle - Mesas</title>
+        <script src="socket.io.js"></script>
+        <script src="jquery.min.js"></script>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+
+        
+        
+    </head>
+    <body id="geral">
+        <div class="container">
+                <br><br>
+                                 
+                <div class="row">
+                    
+                    <div class="column col-lg-12" id="sidebar">
+                        <div class="panel panel-default">
+                            
+              <div class="panel panel-default" id="painelopcoes" style="font-weight: bold; margin-left: 2%; margin-top: 5%; width: 95%">
+                                  <h3 style="font-weight: bold; margin-left: 5%;">OPÇÕES</h3>    
+                                   <br>
+                                  <div class="row">
+                                    <div class="column col-lg-5" style="margin-left: 5%;">
+                                        <a id="novo" href="#painelpedidos"><img src="img/botaochamar.png" style="margin-right: 10px;" width="60" height="60"></img></a>
+                                        <a id="chamar" href="#"><img src="img/botaoatencao.png" style="margin-right: 10px;" width="60" height="60"></img></a>
+                                        <a id="fechar" href="#"><img src="img/fecharmesa.png" width="60" height="60"></img></a>
+                                    </div>
+                                    
+                                    <!-- Modals -->
+                                    <!-- Modal -->
+                                    <div id="modalpedidos" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content" >
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Selecione o pedido</h4>
+                                          </div>
+                                          <div class="modal-body" align="center">
+                                            <div id="sucos" >
+                                                <a href="#formdetalhes"><img src="img/sucos.png" style="" width="120" height="120"></img></a> 
+                                                <p><br>Sucos</p>
+                                                <!-- form especificando quantidade -->
+                                                Quantidade:
+                                                <select class="combobox">
+                                                <option></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                              </select>
+                                              Mesa:
+                                                <select class="combobox2">
+                                                <option></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                              </select>
+                                              
+                                            </div><br>
+                                            <div id="bolos">
+                                                <a href="#formdetalhes2"><img src="img/bolos.png" style="" width="120" height="120"></img></a>
+                                                <p><br>Bolos</p>
+                                                <!-- form especificando quantidade -->
+                                                Quantidade:
+                                                <select class="combobox3">
+                                                <option></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                              </select>
+                                              Mesa:
+                                                <select class="combobox4">
+                                                <option></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer" style="margin-right: 34%;">
+                                              <button type="button" class="btn btn-primary confirmapedido">Confirmar</button>
+                                              <button type="button" class="btn btn-danger limparpedido">Limpar</button>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+
+                                  </div>   <br>                        
+                            </div>
+                            <div class="panel panel-default" id="painelpedidos" style="font-weight: bold; margin-left: 2%; width: 95%">
+                                  <h3 style="font-weight: bold; margin-left: 5%;">PEDIDOS</h3>    
+                                  <br><br>
+                                  
+                                                            
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+        </div>
+        
+         
+    </body>
+</html>
