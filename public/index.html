@@ -4,13 +4,23 @@
         <title>Painel de Controle - Mesas</title>
         <script src="socket.io.js"></script>
         <script src="jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
         <script src="main.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <meta charset="utf-8">
-
+        <script src="bootstrap-select.js"></script>
         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+         
         
     </head>
     <body id="geral">
@@ -21,15 +31,17 @@
                     
                     <div class="column col-lg-12" id="sidebar">
                         <div class="panel panel-default">
-                            
+                            <img src="img/banner.png" style="width: 30%; height: 80%; margin-left: 2%; margin-top: 2%;">
               <div class="panel panel-default" id="painelopcoes" style="font-weight: bold; margin-left: 2%; margin-top: 5%; width: 95%">
                                   <h3 style="font-weight: bold; margin-left: 5%;">OPÇÕES</h3>    
                                    <br>
                                   <div class="row">
                                     <div class="column col-lg-5" style="margin-left: 5%;">
-                                        <a id="novo" href="#painelpedidos"><img src="img/botaochamar.png" style="margin-right: 10px;" width="60" height="60"></img></a>
-                                        <a id="chamar" href="#"><img src="img/botaoatencao.png" style="margin-right: 10px;" width="60" height="60"></img></a>
-                                        <a id="fechar" href="#"><img src="img/fecharmesa.png" width="60" height="60"></img></a>
+                                        <button type="button" id="novo" class="btn btn-primary btn-lg" style="height: 100px; width: 100px;">
+                                          <span class="glyphicon glyphicon-hand-up" style="font-size: 1.5em;"></span> <br>Solicitar <br>Pedido</button>
+                                          &nbsp;
+                                        <button type="button" id="fechar" class="btn btn-primary btn-lg" style="height: 100px; width: 100px; background-color: green; border-color: white; ">
+                                          <span class="glyphicon glyphicon-ok" style="font-size: 1.5em;"></span> <br>Fechar <br>Mesa</button>
                                     </div>
                                     
                                     <!-- Modals -->
@@ -43,54 +55,101 @@
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             <h4 class="modal-title">Selecione o pedido</h4>
                                           </div>
-                                          <div class="modal-body" align="center">
-                                            <div id="sucos" >
-                                                <a href="#formdetalhes"><img src="img/sucos.png" style="" width="120" height="120"></img></a> 
-                                                <p><br>Sucos</p>
+                                          <div class="modal-body" align="left" style="font-family: 'Ubuntu', sans-serif;">
+                                            <div id="sucos">
+                                                <div id="titlesucos" align="center" style="font-size: 30px; width: 10%; height: 10%; border: 1px solid #e7f709;  background-color: #e7f709; border-radius: 3px;">
+                                                  <p>1</p>
+                                                  
+                                                </div>
+                                                <h4> SUCOS </h4>
+                                                <br>             
+
+                                                
                                                 <!-- form especificando quantidade -->
                                                 Quantidade:
-                                                <select class="combobox">
-                                                <option></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                              </select>
-                                              Mesa:
-                                                <select class="combobox2">
-                                                <option></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                              </select>
+                                                <select class="combobox selectpicker">
+                                                  <option></option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>&nbsp;&nbsp;
+                                              <input type="radio" name="tiposuco" id="tiposuco" value="taça"> Taça
+                                              <input type="radio" name="tiposuco" id="tiposuco" value="jarra"> Jarra
+                                              <br><br>
+                                              
+                                               Sabor:
+                                                <select class="combobox5 selectpicker">
+                                                  <option></option>
+                                                  <option>Abacaxi</option>
+                                                  <option>Laranja</option>
+                                                  <option>Laranka com morango</option>
+                                                  <option>Laranka com acerola</option>
+                                                  <option>Graviola</option>
+                                                  <option>Limonada</option>
+                                                </select>
                                               
                                             </div><br>
                                             <div id="bolos">
-                                                <a href="#formdetalhes2"><img src="img/bolos.png" style="" width="120" height="120"></img></a>
-                                                <p><br>Bolos</p>
+                                                <div id="titlesucos" align="center" style="font-size: 30px; width: 10%; height: 10%; border: 1px solid #e7f709;  background-color: #e7f709; border-radius: 3px;">
+                                                  <p>2</p>
+                                                </div>
+                                                <h4> BOLOS </h4>
+                                                <br>
                                                 <!-- form especificando quantidade -->
                                                 Quantidade:
-                                                <select class="combobox3">
-                                                <option></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                              </select>
-                                              Mesa:
-                                                <select class="combobox4">
-                                                <option></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                              </select>
+                                                <select class="combobox3 selectpicker">
+                                                  <option></option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                                </select>
+                                                
+                                                <br><br>
+                                              
+                                              Sabor:
+                                                <select class="combobox6 selectpicker">
+                                                  <option></option>
+                                                  <option>Chocolate</option>
+                                                  <option>Abacaxi</option>
+                                                  
+                                                </select>
                                             </div>
+                                            <br><br>
+                                            <div id="mesa">
+                                                <div id="titlemesa" align="center" style="font-size: 30px; width: 10%; height: 10%; border: 1px solid #e7f709;  background-color: #e7f709; border-radius: 3px;">
+                                                  <p>3</p>
+                                                </div>
+                                                <h4> SELECIONE A MESA </h4>
+                                                <br>
+                                                <!-- form pra selecionar a mesa -->
+                                                <label class="checkbox-inline"><input type="checkbox" value="">Mesa 1</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="">Mesa 2</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="">Mesa 3</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="">Mesa 4</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="">Mesa 5</label>
+                                                <label class="checkbox-inline"><input type="checkbox" value="">Mesa 6</label>
+                                                <br><br>
+                                              
+                                                
+                                            </div>
+
+
+
+
                                           </div>
                                           <div class="modal-footer" style="margin-right: 34%;">
                                               <button type="button" class="btn btn-primary confirmapedido">Confirmar</button>

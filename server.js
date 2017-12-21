@@ -40,9 +40,8 @@ io.sockets.on('connection', function(socket){
         // Envia msg de confirmação pra todos conectados no no servidor com o dado enviado pelo pc 
         // que enviou a solicitação
         socket.broadcast.emit('novo pedido', {
-          message: data
+            message: data
         });
-
 
     });   
 });
